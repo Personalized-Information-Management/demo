@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <script src="讨论区_files/vue.js"></script>
+    <style>
+      .box{margin-right: 70%;}
+      .aa{background-image: url(讨论区_files/image/lun02.png);}
+    </style>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  </head>
+  <body>
+      <div id="discuss">
+      <div class="container">
+          <div class="row">
+              <div class="col-sm-3 " style="width:140px;height:120px">
+                  <div class="media p-3">
+                      <img src="./主页_files/用户.png" alt="John Doe" class="mr-3 " style="width: 60px; height: 60px;border-radius: 1px soild red;">
+                  </div>
+
+                  <!-- 用户信息 -->
+                 <v-mynew v-bind:message="item"></v-mynew>
+              </div> 
+              <div class="col-sm-9 aa">
+                <div class="row ">
+                  <div class="col-sm-4">
+                  </div>
+                  <div class="col-sm-6">
+                      <form class="well form-search p-3  "style="height:100px;">
+                          <input type="text" class="input-medium search-query" >
+                          <button type="submit" class="btn btn-primary">搜索</button>
+                          <img src="讨论区_files/image/addnote.png" data-toggle="modal" data-target="#myModal" class="img-fluid ${3|rounded-top,rounded-right,rounded-bottom,rounded-left,rounded-circle,|}" alt="">
+                             
+                            <!-- 模态框 -->
+                            <div class="modal fade" id="myModal">
+                              <div class="modal-dialog">
+                                <div class="modal-content">
+                             
+                                  <!-- 模态框头部 -->
+                                  <div class="modal-header">
+                                    <h4 class="modal-title">发表讨论</h4>
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                  </div>
+                                  
+                                  <!-- 模态框主体 -->
+                                  <div class="modal-body">
+                                    <div class="form-group">
+                                      <div class="form-group">
+                                        <label for="">讨论标题</label>
+                                        <input type="text" class="form-control" name="" id="" aria-describedby="helpId" placeholder="">
+                                        <small id="helpId" class="form-text text-muted"></small>
+                                      </div>
+                                      <label for="">发表内容</label>
+                                      <textarea class="form-control" name="" id="" rows="3"></textarea>
+                                    </div>
+                                  </div>
+                                  
+                                  <!-- 模态框底部 -->
+                                  <div class="modal-footer">
+                                    <button type="submit" class="btn btn-primary">发送</button>
+                                  </div>
+                             
+                                </div>
+                              </div>
+                            </div>
+                      </form> 
+                  </div>
+                    </div>
+                    <div class="col-sm-2">
+                      </div>
+                      <div style="border-top: 1px solid bisque;border-bottom: 1px solid bisque;"><h5>讨论区</h5></div>
+                </div>
+                
+          </div>
+          <!-- 第二行 -->
+          <div class="row my-3">
+            <div class="col-sm-3">
+              <ol class="breadcrumb">
+                  <li class="breadcrumb-item active"><img src="讨论区_files/image/课程.png" class="img-fluid ${3|rounded-top,rounded-right,rounded-bottom,rounded-left,rounded-circle,|}" alt="" style="width: 30px; height: 30px;"></li>
+                <li class="breadcrumb-item"><a href="#">收件箱</a></li>
+              </ol>
+              <ol class="breadcrumb">
+                  <li class="breadcrumb-item active"><img src="讨论区_files/image/作业.png" class="img-fluid ${3|rounded-top,rounded-right,rounded-bottom,rounded-left,rounded-circle,|}" alt="" style="width: 30px; height: 30px;"></li>
+                <li class="breadcrumb-item"><a href="#">课程讨论</a></li>
+              </ol>
+              <ol class="breadcrumb">
+                  <li class="breadcrumb-item active"><img src="讨论区_files/image/教师.png" class="img-fluid ${3|rounded-top,rounded-right,rounded-bottom,rounded-left,rounded-circle,|}" alt="" style="width: 30px; height: 30px;"></li>
+                <li class="breadcrumb-item"><a href="#">回复我的</a></li>
+                <!-- <li class="breadcrumb-item"><a href="#">Library</a></li> -->
+                <!-- <li class="breadcrumb-item active">Data</li> -->
+              </ol>
+              <!--  -->
+              <ol class="breadcrumb">
+                <li class="breadcrumb-item active  "><img src="讨论区_files/image/课程.png" class="img-fluid ${3|rounded-top,rounded-right,rounded-bottom,rounded-left,rounded-circle,|}" alt="" style="width: 30px; height: 30px;"></li>
+              <li class="breadcrumb-item"><a href="#">我发表的</a></li>
+            </ol>
+            
+            </div>
+            <v-area></v-area>
+          </div>
+       
+      </div>
+    </div>
+    <script>//用户信息组件
+    Vue.component('v-mynew',
+        {
+          props: ['message'],
+            data() {
+                return {
+                    
+                }
+            },
+            methods: {//方法
+                
+            },
+            template://模板
+            `       
+                    <div class="media-body "style="width:130px;height:50px">
+                        <div>姓名：张三</div>
+                        <p>账号：2019</p>
+                    </div>
+
+            `,
+        }
+    );
+
+
+    Vue.component('v-area',//讨论内容组件
+        {
+          props: ['content'],
+            data() {
+                return {
+                    
+                }
+            },
+            methods: {//方法
+                
+            },
+            template://模板
+            `       
+            <div class="col-sm-9">
+                <div class="media p-3 yonghu">
+                    <img src="./主页_files/用户.png" alt="John Doe" class="mr-3 " style="width: 60px; height: 60px;border-radius: 1px soild red;">
+                    <div></div>
+                    <div class="card"style="width:100%">
+                        <div class="card-body">
+                          <h4 class="card-title">标题</h4>
+                          <p class="card-text">内容</p>
+                          <a href="#" class="card-link">Card link</a>
+                          <a href="#" class="card-link">Another link</a>
+                        </div>
+                        <div class="card-footer ">
+                              <div class="container-fluid">
+                                  <div class="row">
+                                    <div class="col-xs-10">
+                                      
+                                    </div>
+                                    <div class="col-xs-1 " >
+                                        <img src="讨论区_files/image/点赞1.png" alt="dianzan" class="mr-3 " style="width: 30px; height: 30px;">
+                                    </div>
+                                    <div class="col-xs-1">
+                                        
+                                        <img src="讨论区_files/image/讨论区.png" alt="comment" class="mr-3 " style="width: 30px; height: 30px;">
+                                    </div>
+                                  </div>
+                              </div>
+                            </div>
+                      </div>
+                  </div>
+                  <div class="media p-3 yonghu">
+                      <img src="./主页_files/用户.png" alt="John Doe" class="mr-3 " style="width: 60px; height: 60px;border-radius: 1px soild red;">
+                      <div class="card"style="width:100%">
+                          <div class="card-body">
+                            <h4 class="card-title">标题</h4>
+                            <p class="card-text">内容</p>
+                            <a href="#" class="card-link">Card link</a>
+                            <a href="#" class="card-link">Another link</a>
+                          </div>
+                          <div class="card-footer ">
+                              <div class="container-fluid">
+                                  <div class="row">
+                                    <div class="col-xs-10">
+                                      
+                                    </div>
+                                    <div class="col-xs-1">
+                                        <img src="讨论区_files/image/点赞1.png" alt="dianzan" class="mr-3 " style="width: 30px; height: 30px;">
+                                    </div>
+                                    <div class="col-xs-1">
+                                        
+                                        <img src="讨论区_files/image/讨论区.png" alt="comment" class="mr-3 " style="width: 30px; height: 30px;">
+                                    </div>
+                                  </div>
+                              </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="media p-3 yonghu">
+                        <img src="./主页_files/用户.png" alt="John Doe" class="mr-3 " style="width: 60px; height: 60px;border-radius: 1px soild red;">
+                        <div class="card"style="width:100%">
+                            <div class="card-body">
+                              <h4 class="card-title">标题</h4>
+                              <p class="card-text">内容</p>
+                              <a href="#" class="card-link">Card link</a>
+                              <a href="#" class="card-link">Another link</a>
+                            </div>
+                            <div class="card-footer ">
+                              <div class="container-fluid">
+                                  <div class="row">
+                                    <div class="col-xs-10">
+                                      
+                                    </div>
+                                    <div class="col-xs-1">
+                                        <img src="讨论区_files/image/点赞1.png" alt="dianzan" class="mr-3 " style="width: 30px; height: 30px;">
+                                    </div>
+                                    <div class="col-xs-1">
+                                        
+                                        <img src="讨论区_files/image/讨论区.png" alt="comment" class="mr-3 " style="width: 30px; height: 30px;">
+                                    </div>
+                                  </div>
+                              </div>
+                            </div>
+                          </div>
+                      </div>
+            </div>
+
+            `,
+        }
+    );
+        
+   
+
+    new Vue({
+        el: '#discuss',
+        
+    });
+    </script>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>
